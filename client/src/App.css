@@ -1,0 +1,106 @@
+/* App.css */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles for Dark Mode */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1a202c; /* Dark background */
+  color: #e2e8f0; /* Light text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Main Todo App Container */
+.todo-app {
+  background-color: #2d3748; /* Dark container */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Title */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #63b3ed; /* Light blue */
+  margin-bottom: 20px;
+}
+
+/* Input and Button Wrapper */
+.input-wrapper {
+  margin-bottom: 20px;
+}
+
+/* Todo Input */
+.todo-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #4a5568; /* Dark border */
+  background-color: #4a5568; /* Dark input field */
+  color: #e2e8f0; /* Light text */
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #63b3ed; /* Light blue on focus */
+  box-shadow: 0 0 5px rgba(99, 179, 237, 0.3);
+}
+
+/* Add Todo Button */
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #63b3ed; /* Light blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #4299e1; /* Darker blue on hover */
+}
+
+/* Todo List */
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Todo Item */
+.todo-item {
+  background-color: #4a5568; /* Dark todo item background */
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color: #434c59; /* Slightly lighter dark color on hover */
+}
+
+.todo-item span {
+  font-size: 1rem;
+  color: #e2e8f0; /* Light text */
+}
