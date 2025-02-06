@@ -1,106 +1,122 @@
-/* App.css */
-
-/* General Reset */
-* {
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  /* Dark background */
+  color: #e0e0e0;
+  text-align: center;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Body styles for Dark Mode */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #1a202c; /* Dark background */
-  color: #e2e8f0; /* Light text */
+h1 {
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  margin: 20px auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  gap: 10px;
 }
 
-/* Main Todo App Container */
-.todo-app {
-  background-color: #2d3748; /* Dark container */
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-}
-
-/* Title */
-h1 {
-  font-size: 2rem;
-  text-align: center;
-  color: #63b3ed; /* Light blue */
-  margin-bottom: 20px;
-}
-
-/* Input and Button Wrapper */
-.input-wrapper {
-  margin-bottom: 20px;
-}
-
-/* Todo Input */
 .todo-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #4a5568; /* Dark border */
-  background-color: #4a5568; /* Dark input field */
-  color: #e2e8f0; /* Light text */
-  font-size: 1rem;
-  margin-bottom: 10px;
+  padding: 10px;
+  width: 250px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #1e1e1e;
+  /* Dark input field */
+  color: white;
 }
 
-.todo-input:focus {
-  outline: none;
-  border-color: #63b3ed; /* Light blue on focus */
-  box-shadow: 0 0 5px rgba(99, 179, 237, 0.3);
-}
-
-/* Add Todo Button */
 .add-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #63b3ed; /* Light blue */
+  padding: 10px 15px;
+  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  transition: background 0.3s ease;
 }
 
 .add-btn:hover {
-  background-color: #4299e1; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
 /* Todo List */
 .todo-list {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
+  max-width: 400px;
+  margin: auto;
 }
 
-/* Todo Item */
 .todo-item {
-  background-color: #4a5568; /* Dark todo item background */
+  background: #1e1e1e;
+  /* Dark list items */
   padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.todo-item:hover {
-  background-color: #434c59; /* Slightly lighter dark color on hover */
+  box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);
 }
 
 .todo-item span {
-  font-size: 1rem;
-  color: #e2e8f0; /* Light text */
+  font-size: 18px;
+  color: #e0e0e0;
+}
+
+/* Buttons */
+.edit-btn,
+.delete-btn,
+.save-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+.edit-btn {
+  color: #f39c12;
+}
+
+.delete-btn {
+  color: #e74c3c;
+}
+
+.save-btn {
+  color: #27ae60;
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 2px solid #27ae60;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.save-btn:hover {
+  background: #27ae60;
+  color: white;
+}
+
+/* Edit Input */
+.edit-input {
+  padding: 5px;
+  font-size: 16px;
+  width: 70%;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: white;
 }

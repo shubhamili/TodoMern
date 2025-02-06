@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css"; // Import the CSS file
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
+  const [editTodo, setEditTodo] = useState(null); // Track which todo is being edited
+  const [updatedText, setUpdatedText] = useState(""); // Store updated text
 
   useEffect(() => {
     fetchTodos();
@@ -26,6 +30,7 @@ function App() {
       const response = await axios.post("http://localhost:5000/post", {
         todo: newTodo,
       });
+
       setTodos([...todos, response.data]);
       setNewTodo(""); // Clear the input
     } catch (error) {
@@ -42,10 +47,29 @@ function App() {
     }
   };
 
- 
+  const startEditing = (todo) => {
+    setEditTodo(todo._id);
+    setUpdatedText(todo.todo);
+  };
+
+  const updateTodo = async (id) => {
+    if (!updatedText.trim()) return alert("Todo cannot be empty!");
+
+    try {
+      const response = await axios.put(`http://localhost:5000/update/${id}`, {
+        todo: updatedText,
+      });
+
+      setTodos(todos.map((todo) => (todo._id === id ? response.data : todo)));
+      setEditTodo(null); // Reset edit mode
+      setUpdatedText("");
+    } catch (error) {
+      console.error("Error updating todo:", error);
+    }
+  };
 
   return (
-    <div className="todo-app">
+    <div>
       <h1>Todo App</h1>
 
       {/* Add Todo Input */}
@@ -66,8 +90,31 @@ function App() {
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo._id} className="todo-item">
-            <span>{todo.todo}</span>
-            <button className="delete-btn" onClick={() => deleteTodo(todo._id)}>Delete</button>
+            {editTodo === todo._id ? (
+              <input
+                type="text"
+                value={updatedText}
+                onChange={(e) => setUpdatedText(e.target.value)}
+                className="edit-input"
+              />
+            ) : (
+              <span>{todo.todo}</span>
+            )}
+
+            <div>
+              {editTodo === todo._id ? (
+                <button className="save-btn" onClick={() => updateTodo(todo._id)}>
+                  Save
+                </button>
+              ) : (
+                <button className="edit-btn" onClick={() => startEditing(todo)}>
+                  <FaEdit />
+                </button>
+              )}
+              <button className="delete-btn" onClick={() => deleteTodo(todo._id)}>
+                <MdDelete />
+              </button>
+            </div>
           </li>
         ))}
       </ul>
