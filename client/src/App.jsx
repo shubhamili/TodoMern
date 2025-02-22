@@ -40,7 +40,7 @@ function App() {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/delete/${id}`);
+      await axios.delete(`http://localhost:5000/api/todo/delete/${id}`);
       setTodos(todos.filter((todo) => todo._id !== id));
     } catch (error) {
       console.error("Error deleting todo:", error);
@@ -56,7 +56,7 @@ function App() {
     if (!updatedText.trim()) return alert("Todo cannot be empty!");
 
     try {
-      const response = await axios.put(`http://localhost:5000/update/${id}`, {
+      const response = await axios.put(`http://localhost:5000/api/todo/update/${id}`, {
         todo: updatedText,
       });
 
