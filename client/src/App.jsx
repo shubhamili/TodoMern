@@ -16,7 +16,7 @@ function App() {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/todos");
+      const response = await axios.get("http://localhost:5000/api/todo/todos");
       setTodos(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error);
@@ -27,7 +27,7 @@ function App() {
     if (!newTodo.trim()) return alert("Todo cannot be empty!");
 
     try {
-      const response = await axios.post("http://localhost:5000/post", {
+      const response = await axios.post("http://localhost:5000/api/todo/post", {
         todo: newTodo,
       });
 
