@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors"
 import { connectDB } from "./config/conn.js";
 import todoRouter from "./routes/todoRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 dotenv.config()
 
 const app = express();
@@ -16,6 +17,7 @@ connectDB()
 
 //api endpoint
 app.use("/api/todo",todoRouter)
+app.use("/api/user",userRouter)
 
 app.get("/", (req, res) => {
     res.send("API Working")
