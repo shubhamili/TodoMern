@@ -110,13 +110,26 @@ h1 {
   color: white;
 }
 
-/* Edit Input */
-.edit-input {
-  padding: 5px;
-  font-size: 16px;
-  width: 70%;
-  border: 1px solid #007bff;
-  border-radius: 5px;
-  background-color: #1e1e1e;
-  color: white;
-}
+.logOutbtn {
+  height: fit-content;
+  margin-top: 10px;}
+
+  /* Edit Input */
+  .edit-input {
+    padding: 5px;
+    font-size: 16px;
+    width: 70%;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: white;
+  }
+
+  .nav {
+    background-color: #2f3030;
+    display: flex;
+    width:100vh;
+    justify-content: space-around;
+    margin: 10px 0px 10px 0px;
+  }
+ 

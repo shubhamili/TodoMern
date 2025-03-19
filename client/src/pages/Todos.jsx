@@ -5,7 +5,6 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 
-
 function Todos() {
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState("");
@@ -70,10 +69,15 @@ function Todos() {
         }
     };
 
+    // const navigate = useNavigate()
+
     return (
-        <div>
+        <div className="main">
+            <div className="nav">
+                <h3>userNAme </h3>
+                <button className="logOutbtn" onClick={('/sign')}>signUp</button>
+            </div>
             <h1>Todo App</h1>
-            <button onClick={() => { }}>SignIN </button>
 
             {/* Add Todo Input */}
             <div className="input-wrapper">
@@ -83,8 +87,9 @@ function Todos() {
                     placeholder="Enter a new todo"
                     value={newTodo}
                     onChange={(e) => setNewTodo(e.target.value)}
+                    onKeyDown={(e) => (e.key === "Enter" ? addTodo() : null)}
                 />
-                <button className="add-btn" onClick={addTodo}>
+                <button className="add-btn" onClick={addTodo }>
                     Add Todo
                 </button>
             </div>
@@ -128,3 +133,4 @@ function Todos() {
 }
 
 export default Todos;
+
