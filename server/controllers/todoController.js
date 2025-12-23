@@ -17,7 +17,6 @@ const getTodos = async (req, res) => {
 
 const addTodo = async (req, res) => {
     const { todo } = req.body
-
     Todo.create({ todo })
         .then((newTodo) => {
             res.status(201).json(newTodo); // Send the created Todo as a response

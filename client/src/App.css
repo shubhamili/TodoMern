@@ -1,135 +1,43 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  /* Dark background */
-  color: #e0e0e0;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  justify-content:center;
 }
 
-h1 {
-  color: #ffffff;
-  margin-top: 20px;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* Input Wrapper */
-.input-wrapper {
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.todo-input {
-  padding: 10px;
-  width: 250px;
-  border: 2px solid #007bff;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #1e1e1e;
-  /* Dark input field */
-  color: white;
-}
-
-.add-btn {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s ease;
-}
-
-.add-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Todo List */
-.todo-list {
-  list-style-type: none;
-  padding: 0;
-  max-width: 400px;
-  margin: auto;
-}
-
-.todo-item {
-  background: #1e1e1e;
-  /* Dark list items */
-  padding: 12px;
-  border-radius: 5px;
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.1);
-}
-
-.todo-item span {
-  font-size: 18px;
-  color: #e0e0e0;
-}
-
-/* Buttons */
-.edit-btn,
-.delete-btn,
-.save-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  margin-left: 8px;
-}
-
-.edit-btn {
-  color: #f39c12;
-}
-
-.delete-btn {
-  color: #e74c3c;
-}
-
-.save-btn {
-  color: #27ae60;
-  font-size: 16px;
-  padding: 5px 10px;
-  border: 2px solid #27ae60;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.save-btn:hover {
-  background: #27ae60;
-  color: white;
-}
-
-.logOutbtn {
-  height: fit-content;
-  margin-top: 10px;}
-
-  /* Edit Input */
-  .edit-input {
-    padding: 5px;
-    font-size: 16px;
-    width: 70%;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    background-color: #1e1e1e;
-    color: white;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-
-  .nav {
-    background-color: #2f3030;
-    display: flex;
-    width:100vh;
-    justify-content: space-around;
-    margin: 10px 0px 10px 0px;
+  to {
+    transform: rotate(360deg);
   }
- 
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

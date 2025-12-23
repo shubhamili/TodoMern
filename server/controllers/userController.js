@@ -15,4 +15,16 @@ const signUp = async (req, res) => {
 
 }
 
+const Login = async (req, res) => {
+    const { email, password } = req.body;
+    User.findOne({
+        email
+    }).then(
+        (userfinded) => {
+            res.cookie("token", token, options)
+            res.send(201, { success: true, msg: "find the user below", userData: userfinded })
+        }
+    )
+}
+
 export { signUp }

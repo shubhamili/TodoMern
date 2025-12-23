@@ -3,10 +3,8 @@ import mongoose from "mongoose";
 
 
 export const connectDB = async () => {
-
     try {
-
-        mongoose.connect(`mongodb+srv://shubhamsinghia160:${process.env.DB_PASS}@cluster0.dupow.mongodb.net/TodosCollection`)
+        mongoose.connect(process.env.DB_URI)
             .then(() => {
                 console.log("database connect ho gya ji");
             })
