@@ -12,7 +12,7 @@ const App = () => {
   const getTodo = async () => {
     const resp = await axios.get("http://localhost:5000/api/todo/todos")
     setTodoText(resp.data)
-    // console.log(resp);
+
   }
 
   const addTodo = async () => {
@@ -23,22 +23,31 @@ const App = () => {
     if (res.status === 201) {
       setTodoText([...todosText, { todo: newTodosText }])
     }
+    setNewTodoText("")
 
   }
   // console.log(newTodosText);
 
 
+  const deleteTodo = async (id) => {
+    const res = await axios.delete(`http://localhost:5000/api/todo/delete/${id}`)
+    if (res.status === 200) {
+      setTodoText(todosText.filter((one) => one._id !== id))
+    }
+  }
+
+
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md">
+    <div className="min-h-screen bg-gray-400 flex items-center justify-center">
+      <div className=" m-10 shadow-lg flex flex-col  rounded-2xl p-6 w-full max-w-md">
 
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Todo App
         </h1>
 
-        <div className="flex gap-2 mb-4">
+        <div className="flex flex-col md:flex-row gap-2 mb-4">
           <input
-            className="flex-1 px-4 py-2 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-4 py-2 text-lg border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             type="text"
             placeholder="Enter todo..."
             value={newTodosText}
@@ -47,20 +56,26 @@ const App = () => {
 
           <button
             onClick={addTodo}
-            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition"
+            className="bg-blue-500 hover:bg-blue-600 text-gray-100 px-4 py-2 rounded-lg font-semibold transition"
           >
             Add
           </button>
         </div>
 
-        <ul className="space-y-2">
+        <ul className="flex flex-col gap-3 w-full">
           {todosText.map((one) => {
             return (
               <li
                 key={one._id}
-                className="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg flex justify-between items-center"
+                className="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg flex justify-between items-center w-full h-full"
               >
-                <span className="text-gray-700 w-3">{one.todo}</span>
+                <span className="text-gray-700 break-words overflow-hidden">{one.todo}</span>
+                <button
+                  onClick={() => deleteTodo(one._id)}
+                  className="bg-red-500 hover:bg-red-600 text-gray-100 px-3 py-1 rounded-lg font-semibold transition"
+                >
+                  🗑️
+                </button>
               </li>
             );
           })}
