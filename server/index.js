@@ -17,14 +17,14 @@ app.use(express.urlencoded({ extended: true }))
 
 connectDB()
 
-app.use((req,res,next)=>{
-console.log(` api ${req.method} ${req.originalUrl} `);
-next()
-})
+// app.use((req,res,next)=>{
+// console.log(` api ${req.method} ${req.originalUrl} `);
+// next()
+// })
 
 //api endpoint
-app.use("/api/todo",todoRouter)
-app.use("/api/user",userRouter)
+app.use("/api/todo", todoRouter)
+app.use("/api/user", userRouter)
 
 
 
@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
     res.send("API Working")
 })
 
-app.listen(PORT, () => {
-    console.log(`server is running at port ${PORT}`);
 
-})
+app.listen(PORT, "0.0.0.0", () => {
+    console.log("server running");
+});

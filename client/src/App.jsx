@@ -9,14 +9,20 @@ const App = () => {
     getTodo()
   }, [])
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  if (!API_URL) {
+    console.error("API_URL is not defined. Please set VITE_API_URL in your .env file.");
+  }
+
   const getTodo = async () => {
-    const resp = await axios.get("http://localhost:5000/api/todo/todos")
+    const resp = await axios.get(`${API_URL}/api/todo/todos`)
     setTodoText(resp.data)
 
   }
 
   const addTodo = async () => {
-    const res = await axios.post("http://localhost:5000/api/todo/post", { todo: newTodosText })
+    const res = await axios.post(`${API_URL}/api/todo/post`, { todo: newTodosText })
     // console.log("res.status", res.status);
     // console.log("newTodosText", newTodosText);
 
@@ -30,7 +36,7 @@ const App = () => {
 
 
   const deleteTodo = async (id) => {
-    const res = await axios.delete(`http://localhost:5000/api/todo/delete/${id}`)
+    const res = await axios.delete(`${API_URL}/api/todo/delete/${id}`)
     if (res.status === 200) {
       setTodoText(todosText.filter((one) => one._id !== id))
     }
@@ -40,7 +46,6 @@ const App = () => {
   return (
     <div className="min-h-screen bg-gray-400 flex items-center justify-center">
       <div className=" m-10 shadow-lg flex flex-col  rounded-2xl p-6 w-full max-w-md">
-
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Todo App
         </h1>
@@ -69,10 +74,10 @@ const App = () => {
                 key={one._id}
                 className="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg flex justify-between items-center w-full h-full"
               >
-                <span className="text-gray-700 break-words overflow-hidden">{one.todo}</span>
+                <span className="text-gray-700 wrap-break-word overflow-hidden">{one.todo}</span>
                 <button
                   onClick={() => deleteTodo(one._id)}
-                  className="bg-red-500 hover:bg-red-600 text-gray-100 px-3 py-1 rounded-lg font-semibold transition"
+                  className=" hover:bg-red-600 text-gray-100 px-3 py-1 rounded-lg font-semibold transition"
                 >
                   🗑️
                 </button>
@@ -86,4 +91,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
