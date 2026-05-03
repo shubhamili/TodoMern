@@ -10,6 +10,7 @@ const App = () => {
   }, [])
 
   const API_URL = import.meta.env.VITE_API_URL;
+  console.log('API_URL', API_URL)
 
   if (!API_URL) {
     console.error("API_URL is not defined. Please set VITE_API_URL in your .env file.");
@@ -18,7 +19,6 @@ const App = () => {
   const getTodo = async () => {
     const resp = await axios.get(`${API_URL}/api/todo/todos`)
     setTodoText(resp.data)
-
   }
 
   const addTodo = async () => {
