@@ -1,4 +1,3 @@
 ## devops project
 
-Do the docker thing first then make it like then use ec2 in this project itselelf to uploade download images etc.
-then other things also 
+was running on ec2 on http://43.204.38.55:3000/
