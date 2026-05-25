@@ -4,6 +4,7 @@ import cors from "cors"
 import { connectDB } from "./config/conn.js";
 import todoRouter from "./routes/todoRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import { fileRouter } from "./routes/fileRoutes.js";
 // import morgan from "morgan";
 dotenv.config()
 
@@ -25,7 +26,7 @@ connectDB()
 //api endpoint
 app.use("/api/todo", todoRouter)
 app.use("/api/user", userRouter)
-
+app.use("/api/file", fileRouter)
 
 
 
