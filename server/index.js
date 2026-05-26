@@ -27,7 +27,7 @@ connectDB()
 app.use("/api/todo", todoRouter)
 app.use("/api/user", userRouter)
 app.use("/api/file", fileRouter)
-
+app.use('/uploads', express.static('uploads'));
 
 
 app.get("/", (req, res) => {

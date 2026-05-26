@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useEffect } from 'react';
 const App = () => {
   const [todosText, setTodoText] = React.useState([]);
-  const [newTodosText, setNewTodoText] = React.useState(null)
+  const [newTodosText, setNewTodoText] = React.useState('')
   const [selected, setSelected] = React.useState('todo');
   const [file, setFile] = React.useState('');
   const [preview, setPreview] = React.useState('');
@@ -23,7 +23,9 @@ const App = () => {
   }
 
   const getTodo = async () => {
+    console.log('Fetching todos...');
     const resp = await axios.get(`${API_URL}/api/todo/todos`)
+
     setTodoText(resp.data)
   }
 
