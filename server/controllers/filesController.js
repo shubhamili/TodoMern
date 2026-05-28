@@ -116,3 +116,24 @@ export const editImage = async (req, res) => {
         )
     }
 }
+
+
+export const listImages = async (req, res) => {
+
+    try {
+        const filesDocs = await Files.find({}).select('-createdAt -updatedAt -__v')
+        
+
+        console.log('filesDocs', filesDocs)
+        if (filesDocs.length === 0) {
+            return res.status(400).json({ messsge: "no files", filesDocs })
+        }
+        return res.status(200).json({ messsge: "listing images", data: filesDocs })
+    } catch (error) {
+        console.log('error', error)
+        return res.status(500).json(
+            { message: "failed something", error }
+        )
+    }
+
+}
