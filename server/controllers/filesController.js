@@ -99,16 +99,15 @@ export const editImage = async (req, res) => {
             await fs.unlink(filePath);
             return res.status(200).json({
                 message: 'File edited from DB and folder',
-                deleteDoc
+                editable
             });
         } catch (err) {
+            console.log("error :", err)
             return res.status(400).json({
                 message: 'File not found in uploads folder',
                 err
             });
         }
-
-
 
     } catch (error) {
         console.log('error', error)
