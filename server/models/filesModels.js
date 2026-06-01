@@ -1,10 +1,14 @@
 import mongoose from "mongoose";
 
 const filesSchema = new mongoose.Schema({
-    imageUrl: {
+    imageKey: {
         type: String,
         required: true,
         unique: true
+    },
+    imageUrl: {
+        type: String,
+        required: true,
     },
     imageName: {
         type: String,

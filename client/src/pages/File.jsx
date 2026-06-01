@@ -36,7 +36,7 @@ export default function FileWala() {
         setEditingFileId(fileData._id);
         setEditingFileName(fileData.imageName);
         setFile(null);
-        setPreview(`${API_URL}/${fileData.imageUrl.replace(/\\/g, "/")}`);
+        setPreview(`${API_URL}/${fileData.signedUrl.replace(/\\/g, "/")}`);
     }
 
     const handleDelete = async (id) => {
@@ -144,7 +144,7 @@ export default function FileWala() {
                             >
                                 <div className='flex items-center gap-3'>
                                     <img
-                                        src={`${API_URL}/${file.imageUrl.replace(/\\/g, "/")}`}
+                                        src={file.signedUrl }
                                         alt={file.imageName}
                                         className='w-16 h-16 object-cover rounded'
                                     />
