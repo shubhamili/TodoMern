@@ -16,7 +16,7 @@ function Home() {
           </p>
 
           <h1 className="text-6xl md:text-8xl font-black leading-tight mb-6">
-            WE ARE SO BACK with CI/CD pipelines and file uploads.
+            WE ARE SO BACK with CI/CD
           </h1>
 
           <p className="text-gray-400 text-xl md:text-2xl mb-8">
