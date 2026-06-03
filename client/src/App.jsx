@@ -12,7 +12,7 @@ function Home() {
         <div className="text-center max-w-3xl">
 
           <p className="text-green-400 text-sm mb-4 tracking-widest uppercase">
-            Elite Ball Knower Certified yes 
+            Elite Ball Knower Certified Bro 
           </p>
 
           <h1 className="text-6xl md:text-8xl font-black leading-tight mb-6">
