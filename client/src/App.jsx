@@ -2,7 +2,7 @@
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Todo from './pages/Todo';
-import FileWala from './pages/file';
+import FileWala from './pages/File';
 
 function Home() {
   return (
@@ -16,7 +16,7 @@ function Home() {
           </p>
 
           <h1 className="text-6xl md:text-8xl font-black leading-tight mb-6">
-            WE ARE SO BACK
+            WE ARE SO BACK with CI/CD pipelines and file uploads.
           </h1>
 
           <p className="text-gray-400 text-xl md:text-2xl mb-8">
